@@ -126,8 +126,9 @@ def mineTree(inTree, headerTable, minSup, preFix, freqItemList):
     for basePat in bigL:  
         newFreqSet = preFix.copy()
         newFreqSet.add(basePat)
-        # 将每个频繁项添加到频繁项集
-        freqItemList.append(newFreqSet)
+        support = headerTable[basePat][0]
+        # 将每个频繁项添加到频繁项集。保存频繁项集和支持度，用于关联规则计算置信度
+        freqItemList[frozenset(newFreqSet)] = support
         # 查找basePat的条件模式基
         condPattBases = findPrefixPath(basePat, headerTable[basePat][1])
         # 基于条件模式基重新构建FP树

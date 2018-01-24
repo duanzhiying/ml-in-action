@@ -14,5 +14,5 @@ initData = fpGrowth.createInitSet(data)
 retTree,headerTable = fpGrowth.createTree(initData,3)
 
 value = fpGrowth.findPrefixPath('x',headerTable['x'][1])
-freqItems = []
+freqItems = {}
 fpGrowth.mineTree(retTree,headerTable,3,set([]),freqItems)
