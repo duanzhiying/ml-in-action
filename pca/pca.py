@@ -36,6 +36,7 @@ def pca(dataMat, topNfeat=9999999):
     # 将数据转换到N个特征向量构建的新空间
     lowDDataMat = meanRemoved * redEigVects
     # 按照逆转换 到原来的 空间数据，方便作图查看
+    # lowDDataMat * redEigVects.T = meanRemoved,+ meanVals = 原始数据dataMat
     reconMat = (lowDDataMat * redEigVects.T) + meanVals
     return lowDDataMat, reconMat
 
